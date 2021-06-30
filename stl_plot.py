@@ -5,6 +5,7 @@ import pyvista as pv
 import numpy as np
 import tkinter
 from tkinter import filedialog
+import os
 
 # STLの拡大／縮小
 def magnification(points, Mx, My, Mz):
@@ -14,7 +15,7 @@ def magnification(points, Mx, My, Mz):
     return points
 
 def getfile():
-    idir = 'C:\\Users\\t-tsutsumi\\Documents\\work\Python練習'
+    idir =  os.path.abspath(os.path.dirname(__file__)) #あってる？
     file_type = [("STLファイル","*.stl"),("すべて","*")]
     file_path = tkinter.filedialog.askopenfilename(filetypes = file_type, initialdir = idir)
     return file_path
